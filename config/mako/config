@@ -1,0 +1,9 @@
+font=Noto Sans 9
+background-color=#cccccc
+text-color=#222222
+border-color=#aaaaaa
+margin=3
+max-visible=3
+ignore-timeout=0
+default-timeout=10000
+padding=3
