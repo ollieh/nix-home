@@ -100,7 +100,6 @@ in
     exa
     bat
     starship
-    alacritty
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 
