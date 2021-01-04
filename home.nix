@@ -32,7 +32,10 @@ in
       export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE="/usr/bin/locale"
-      export PATH=$PATH:~/.local/bin
+      for file in ~/.zsh_extra/*; do
+          . "$file"
+      done
+      export PATH=$PATH:~/go/bin:~/.local/bin
     '';
     oh-my-zsh = {
         enable = true;
@@ -70,14 +73,22 @@ in
       rust-vim
       julia-vim
     ];
-    configure = {
-    };
+    configure = {};
   };
   home.file = {
     ".tmux.conf".source = ./config/tmux.conf;
     ".ghc/ghci.conf".source = ./config/ghci.conf;
     ".julia/config/startup.jl".source = ./config/startup.jl;
     ".gitconfig".source = ./config/gitconfig;
+    ".local/share/gnome-shell/extensions/bitcoin-markets@ottoallmendinger.github.com".source = builtins.fetchGit {
+      url = "https://github.com/OttoAllmendinger/gnome-shell-bitcoin-markets.git";
+    };
+    ".local/share/gnome-shell/extensions/freon@UshakovVasilii_Github.yahoo.com".source = builtins.fetchGit {
+      url = "https://github.com/UshakovVasilii/gnome-shell-extension-freon.git";
+    } + "/freon@UshakovVasilii_Github.yahoo.com";
+    ".local/share/gnome-shell/extensions/tray-icons@zhangkaizhao.com".source = builtins.fetchGit {
+      url = "https://github.com/zhangkaizhao/gnome-shell-extension-tray-icons.git";
+    };
   };
   xdg.configFile = {
     "starship.toml".text = ''
@@ -85,6 +96,8 @@ in
       [kubernetes]
       disabled = true
       [aws]
+      disabled = true
+      [gcloud]
       disabled = true
     '';
     "alacritty/alacritty.yml".source = ./config/alacritty.yml;
@@ -113,6 +126,16 @@ in
     starship
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/shell".enabled-extensions = [
+        "bitcoin-markets@ottoallmendinger.github.com"
+        "freon@UshakovVasilii_Github.yahoo.com"
+        "tray-icons@zhangkaizhao.com"
+      ];
+    };
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
