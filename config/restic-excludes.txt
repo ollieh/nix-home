@@ -1,0 +1,32 @@
+$HOME/**/Cache
+$HOME/**/.cache
+$HOME/**/cache
+$HOME/**/__pycache__
+$HOME/.local/share/Trash
+$HOME/mnt
+$HOME/.nobackup
+$HOME/.wine
+
+# Steam
+$HOME/.local/share/Steam
+$HOME/.steam
+
+# Rust
+$HOME/.cargo
+
+# Firefox
+$HOME/.mozilla/firefox/*/storage
+$HOME/.mozilla/firefox/*/minidumps
+
+# Electron apps
+$HOME/.config/*/Cache
+$HOME/.config/*/GPUCache
+$HOME/.config/*/ShaderCache
+$HOME/snap/*/*/.config/*/Cache
+$HOME/snap/*/*/.config/*/GPUCache
+$HOME/snap/*/*/.config/*/ShaderCache
+
+# VS Code
+$HOME/.config/Code/CachedData
+$HOME/.config/Code/CachedExtensions
+$HOME/.config/Code/logs

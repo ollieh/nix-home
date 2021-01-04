@@ -1,0 +1,9 @@
+ignore-empty-password
+show-failed-attempts
+indicator-caps-lock
+color=000000
+indicator-idle-visible
+indicator-radius=60
+indicator-thickness=4
+font='Noto Sans'
+font-size=12

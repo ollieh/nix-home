@@ -32,6 +32,7 @@ in
       export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE="/usr/bin/locale"
+      export PATH=$PATH:~/.local/bin
     '';
     oh-my-zsh = {
         enable = true;
@@ -88,6 +89,16 @@ in
     '';
     "alacritty/alacritty.yml".source = ./config/alacritty.yml;
     "termite/config".source = ./config/termite/config;
+    "restic/excludes.txt".source = ./config/restic-excludes.txt;
+    "compton/compton.conf".source = ./config/compton/compton.conf;
+    "i3/config".source = ./config/i3/config;
+    "mako/config".source = ./config/mako/config;
+    "polybar/config".source = ./config/polybar/config;
+    "sway/config".source = ./config/sway/config;
+    "swaylock/config".source = ./config/swaylock/config;
+    "waybar/config".source = ./config/waybar/config;
+    "waybar/executable_mediaplayer.sh".source = ./config/waybar/executable_mediaplayer.sh;
+    "waybar/style.css".source = ./config/waybar/style.css;
   };
   home.packages = with pkgs; [
     git
