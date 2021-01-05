@@ -21,8 +21,6 @@ in
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   fonts.fontconfig.enable = true;
-  home.username = "ollie";
-  home.homeDirectory = "/home/ollie";
   programs.zsh = {
     enable = true;
     initExtra = ''
