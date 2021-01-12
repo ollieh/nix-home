@@ -30,9 +30,6 @@ in
       export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE="/usr/bin/locale"
-      for file in ~/.zsh_extra/*; do
-          . "$file"
-      done
       export PATH=$PATH:~/go/bin:~/.local/bin
     '';
     oh-my-zsh = {
