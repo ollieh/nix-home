@@ -35,6 +35,9 @@ in
     oh-my-zsh = {
         enable = true;
         plugins = ["git" "fzf"];
+        extraConfig = ''
+        DISABLE_AUTO_TITLE="true"
+        '';
     };
     shellAliases = {
       ls = "exa -G  --color auto --icons -a -s type";
