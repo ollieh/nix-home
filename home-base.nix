@@ -122,11 +122,20 @@ in
     exa
     bat
     starship
+    arc-theme
+    pop-gtk-theme
+    paper-icon-theme
+    gnome3.gnome-tweak-tool
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/peripherals/touchpad".natural-scroll = false;
+      "org/gnome/desktop/interface" = {
+        gtk-theme = "Pop-dark";
+        icon-theme = "Paper-Mono-Dark";
+      };
       "org/gnome/shell".enabled-extensions = [
         "bitcoin-markets@ottoallmendinger.github.com"
         "freon@UshakovVasilii_Github.yahoo.com"

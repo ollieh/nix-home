@@ -17,7 +17,8 @@
         "general.autoScroll" = true;
         "general.useragent.locale" = "en-GB";
         "geo.enabled" = false;
-        "media.eme.enabled" = false;
+        #"media.eme.enabled" = false; DRM video
+        "media.eme.enabled" = true;
         "media.navigator.enabled" = false;
         "media.peerconnection.enabled" = false;
         "network.cookie.cookieBehavior" = 1;
