@@ -81,9 +81,6 @@ in
     ".local/share/gnome-shell/extensions/bitcoin-markets@ottoallmendinger.github.com".source = builtins.fetchGit {
       url = "https://github.com/OttoAllmendinger/gnome-shell-bitcoin-markets.git";
     };
-    ".local/share/gnome-shell/extensions/freon@UshakovVasilii_Github.yahoo.com".source = builtins.fetchGit {
-      url = "https://github.com/UshakovVasilii/gnome-shell-extension-freon.git";
-    } + "/freon@UshakovVasilii_Github.yahoo.com";
     ".local/share/gnome-shell/extensions/tray-icons@zhangkaizhao.com".source = builtins.fetchGit {
       url = "https://github.com/zhangkaizhao/gnome-shell-extension-tray-icons.git";
     };
@@ -126,6 +123,8 @@ in
     pop-gtk-theme
     paper-icon-theme
     gnome3.gnome-tweak-tool
+    gnomeExtensions.caffeine
+    gnomeExtensions.freon
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
   dconf = {
@@ -133,13 +132,14 @@ in
     settings = {
       "org/gnome/desktop/peripherals/touchpad".natural-scroll = false;
       "org/gnome/desktop/interface" = {
-        gtk-theme = "Pop-dark";
-        icon-theme = "Paper-Mono-Dark";
+        gtk-theme = "Adwaita-dark";
+        icon-theme = "Paper";
       };
       "org/gnome/shell".enabled-extensions = [
         "bitcoin-markets@ottoallmendinger.github.com"
         "freon@UshakovVasilii_Github.yahoo.com"
         "tray-icons@zhangkaizhao.com"
+        "caffeine@patapon.info"
       ];
     };
   };
