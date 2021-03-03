@@ -30,7 +30,8 @@ in
       export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
       export LOCALE_ARCHIVE="/usr/bin/locale"
-      export PATH=$PATH:~/go/bin:~/.local/bin
+      export PATH=$PATH:~/go/bin:~/.cargo/bin:~/.local/bin
+      [[ $TERM == xterm-termite ]] && export TERM=xterm
     '';
     oh-my-zsh = {
         enable = true;
@@ -80,7 +81,7 @@ in
     ".gitconfig".source = ./config/gitconfig;
     ".local/share/gnome-shell/extensions/bitcoin-markets@ottoallmendinger.github.com".source = builtins.fetchGit {
       url = "https://github.com/OttoAllmendinger/gnome-shell-bitcoin-markets.git";
-    };
+    } + "/src";
     ".local/share/gnome-shell/extensions/tray-icons@zhangkaizhao.com".source = builtins.fetchGit {
       url = "https://github.com/zhangkaizhao/gnome-shell-extension-tray-icons.git";
     };
@@ -97,6 +98,8 @@ in
     '';
     "alacritty/alacritty.yml".source = ./config/alacritty.yml;
     "termite/config".source = ./config/termite/config;
+    "kitty/kitty.conf".source = ./config/kitty.conf;
+    #"kanshi/config".source = ./config/kanshi;
     "restic/excludes.txt".source = ./config/restic-excludes.txt;
     "compton/compton.conf".source = ./config/compton/compton.conf;
     "i3/config".source = ./config/i3/config;

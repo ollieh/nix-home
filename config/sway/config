@@ -16,7 +16,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term "env WAYLAND_DISPLAY= alacritty"
+set $term "kitty"
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu rofi -show run | xarls swaymsg exec --
@@ -35,7 +35,6 @@ default_border pixel 1
 client.focused #95e3f4 #95e3f4 #000000 #95e3f4 #95e3f4
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 #output * bg ~/Pictures/Wallpapers/oz56512y4uy21.jpg fill
 #
 # Example configuration:
@@ -233,7 +232,8 @@ bindswitch lid:off --locked --reload output $laptop enable
 #Screenshots
 bindsym print exec --no-startup-id slurp | grim -g - "$(xdg-user-dir PICTURES)/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')"
 
-bindsym $mod+m move workspace to output left
+bindsym $mod+period move workspace to output right
+bindsym $mod+comma move workspace to output left
 
 #
 # Status Bar:
@@ -242,6 +242,6 @@ bindsym $mod+m move workspace to output left
 bar {
     swaybar_command waybar
 }
-bindsym $mod+grave exec playerctl play-pause
+bindsym $mod+z exec playerctl play-pause
 
 include @sysconfdir@/sway/config.d/*

@@ -1,0 +1,5 @@
+profile "Docked laptop, dual monitors" {
+	output "Unknown AORUS FI27Q-P 20250B001300" mode 2560x1440 position 0,0
+	output "BenQ Corporation BenQ XL2420T V2C02347SL0" mode 1920x1080 transform 90 position 5060,0
+    output "Unknown 0x0791 0x00000000" disable
+}
