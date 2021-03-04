@@ -5,6 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 input * xkb_layout "gb"
 exec "export _JAVA_AWT_WM_NONREPARENTING=1"
+font pango:"Noto Sans" 9
 
 ### Variables
 #
@@ -19,8 +20,8 @@ set $right l
 set $term "kitty"
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu rofi -show run | xarls swaymsg exec --
-#set $menu wofi --show run | xarls swaymsg exec --
+#set $menu rofi -show run | xarls swaymsg exec --
+set $menu wofi --show run | xarls swaymsg exec --
 
 # Bluetooth
 exec blueman-applet
@@ -32,7 +33,20 @@ exec mako
 gaps outer 0
 gaps inner 5
 default_border pixel 1
-client.focused #95e3f4 #95e3f4 #000000 #95e3f4 #95e3f4
+set $cl_high #56b6c2
+set $cl_indi #e5c07b
+set $cl_back #282c34
+set $cl_fore #d9d8d8
+set $cl_urge #e06c75
+set $cl_mid #aab2bf
+
+# Colors                border   bg       text     indi     childborder
+client.focused          $cl_high $cl_high $cl_back $cl_indi $cl_high
+client.focused_inactive $cl_fore $cl_back $cl_fore $cl_back $cl_mid
+client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_mid
+client.urgent           $cl_urge $cl_urge $cl_back $cl_urge $cl_urge
+
+output * bg $cl_back solid_color
 ### Output configuration
 #
 #output * bg ~/Pictures/Wallpapers/oz56512y4uy21.jpg fill
@@ -110,7 +124,8 @@ bindsym $mod+apostrophe exec gdmflexiserver
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Escape exec wlogout
 #
 # Moving around:
 #

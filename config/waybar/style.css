@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: "Noto Sans, Font Awesome, Font Awesome 5 Free";
-    font-size: 11px;
+    font-size: 12px;
     min-height: 0;
 }
 
@@ -12,7 +12,6 @@ window#waybar {
 }
 
 #window {
-    font-weight: bold;
     font-family: "Noto Sans, Font Awesome, Font Awesome 5 Free";
 }
 #workspaces {
@@ -27,8 +26,8 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: #95e3f4;
-    border-top: 2px solid #95e3f4;
+    color: #56b6c2;
+    border-top: 2px solid #56b6c2;
 }
 #workspaces button.urgent {
     background-color: #c01f1f;

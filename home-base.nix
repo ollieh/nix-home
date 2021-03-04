@@ -32,6 +32,7 @@ in
       export LOCALE_ARCHIVE="/usr/bin/locale"
       export PATH=$PATH:~/go/bin:~/.cargo/bin:~/.local/bin
       [[ $TERM == xterm-termite ]] && export TERM=xterm
+      export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels
     '';
     oh-my-zsh = {
         enable = true;
@@ -71,6 +72,9 @@ in
       vim-nix
       rust-vim
       julia-vim
+      neuron-vim
+      vim-markdown
+      tabular
     ];
     configure = {};
   };
@@ -108,7 +112,8 @@ in
     "sway/config".source = ./config/sway/config;
     "swaylock/config".source = ./config/swaylock/config;
     "waybar/config".source = ./config/waybar/config;
-    "waybar/executable_mediaplayer.sh".source = ./config/waybar/executable_mediaplayer.sh;
+    "waybar/mediaplayer.sh".source = ./config/waybar/mediaplayer.sh;
+    "waybar/crypto_checker.sh".source = ./config/waybar/crypto_checker.sh;
     "waybar/style.css".source = ./config/waybar/style.css;
   };
   home.packages = with pkgs; [
@@ -129,6 +134,8 @@ in
     gnomeExtensions.caffeine
     gnomeExtensions.freon
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    noto-fonts
+    roboto
   ];
   dconf = {
     enable = true;
